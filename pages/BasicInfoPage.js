@@ -14,6 +14,13 @@ class BasicInfoPage{
     get agreeTermsAndPolicy() {return $("//md-checkbox[@ng-model='user.termsAccept']")};
     get continueButton() {return $("//button[@id='AP_Basic_Info_continue']")};
 
+
+    //actions on this page
+
+
+//checks if Continue button is enabled and outputs error message if:
+// 1. the button is enabled when no fields are completed
+// 2. the button is disabled even though the fields are completed with correct information.
     async checkifContinueButtonEnabled(desiredState){
         let bool = await this.continueButton.isClickable();
         let expectedMessage;
@@ -37,6 +44,8 @@ class BasicInfoPage{
         console.log("\x1b[32mLog " + message + "\x1b[0m");
     }
 
+
+// fills information on all the fields and checks the checkbox for agreeing to Terms and Connditions and Privacy Policy
     async fillBasicInfo(fName, lName, mbNumber, zpCode){
         elementUtil.setValueToElement(await this.firstName, fName);
         elementUtil.setValueToElement(await this.lastName, lName);
@@ -49,6 +58,8 @@ class BasicInfoPage{
         elementUtil.clickOnElement(await this.agreeTermsAndPolicy);
     }
 
+
+//clicks on the Continue button
     async submitBasicInfo () {
         elementUtil.clickOnElement(await this.continueButton);
         await browser.pause(3000);

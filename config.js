@@ -1,3 +1,4 @@
+// generates a random email so that each sign up test will a have a new email to register
 function generateRandomEmail() {
     let randomChar = Math.floor((Math.random() * 1000000000000) + 1)
     let randomEmail = "edisa" + randomChar + "@mailinator.com";

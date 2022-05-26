@@ -1,5 +1,7 @@
 class elementUtil {
     
+    // basic functions that will be used on other classes
+
         async setValueToElement(element, value){
             await element.waitForDisplayed({timeout: 5000});
             await element.setValue(value);

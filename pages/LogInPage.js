@@ -6,6 +6,10 @@ class LogInPage {
     get passwordInput() {return $("//input[@type='password']")};
     get loginButton() {return $("#AP_FirstPage_LogIn")};
 
+// actions on this page
+
+
+// Fills the credentials of an already registered user and clicks on Log In button
     async fillLogInForm (email, password) {
         elementUtil.setValueToElement(await this.emailInput, email);
         elementUtil.setValueToElement(await this.passwordInput, password);
